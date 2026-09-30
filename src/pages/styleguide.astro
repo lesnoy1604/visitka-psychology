@@ -1,0 +1,241 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Дизайн-система — Styleguide" description="Витрина компонентов и дизайн-токенов проекта.">
+  <Header />
+  <main>
+    <section class="section-gap bg-parchment">
+      <div class="container">
+        <h1
+          class="font-serif font-medium text-ink mb-2"
+          style="font-size: clamp(36px, 5vw, 56px); letter-spacing: 0; line-height: 1;"
+        >
+          Design <em style="font-style: italic; font-weight: 400;">System</em>
+        </h1>
+        <p class="text-graphite mb-16" style="font-size: 16px; letter-spacing: -0.023em;">
+          Витрина всех дизайн-токенов и компонентов проекта.
+        </p>
+
+        <!-- ===================== COLORS ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-6" style="font-size: 28px; letter-spacing: 0;">Цвета</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {[
+              { name: 'Parchment', hex: '#fef9ef', class: 'bg-parchment', textClass: 'text-ink' },
+              { name: 'Aged Paper', hex: '#f5eee1', class: 'bg-aged-paper', textClass: 'text-ink' },
+              { name: 'Warm Taupe', hex: '#d1c9bf', class: 'bg-warm-taupe', textClass: 'text-ink' },
+              { name: 'Ink', hex: '#2a2b2f', class: 'bg-ink', textClass: 'text-parchment' },
+              { name: 'Charcoal', hex: '#333333', class: 'bg-charcoal', textClass: 'text-parchment' },
+              { name: 'Graphite', hex: '#515151', class: 'bg-graphite', textClass: 'text-parchment' },
+              { name: 'Ash', hex: '#808988', class: 'bg-ash', textClass: 'text-parchment' },
+              { name: 'Accent', hex: '#b05a36', class: 'bg-accent', textClass: 'text-parchment' },
+            ].map(color => (
+              <div class="flex flex-col gap-2">
+                <div
+                  class={`${color.class} rounded-card h-20 border border-warm-taupe flex items-end p-3`}
+                >
+                  <span class={`${color.textClass} font-semibold`} style="font-size: 11px; letter-spacing: 0.05em; opacity: 0.7;">
+                    {color.hex}
+                  </span>
+                </div>
+                <p class="text-ink" style="font-size: 13px; letter-spacing: -0.023em;">{color.name}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- ===================== TYPOGRAPHY ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-6" style="font-size: 28px; letter-spacing: 0;">Типографика</h2>
+
+          <!-- Serif scale -->
+          <div class="flex flex-col gap-6 mb-10">
+            <p class="eyebrow">Cormorant Garamond — заголовки</p>
+
+            <div class="font-serif text-ink" style="font-size: clamp(44px, 7vw, 80px); letter-spacing: 0; line-height: 0.95;">
+              Hero: <em style="font-style: italic; font-weight: 400;">быть собой</em>
+            </div>
+            <p class="text-graphite" style="font-size: 12px; letter-spacing: -0.023em;">clamp(44px, 7vw, 80px) · line-height 0.95 · roman + italic</p>
+
+            <div class="font-serif text-ink" style="font-size: clamp(32px, 4vw, 45px); letter-spacing: 0; line-height: 1.1;">
+              Heading: Место, где можно <em style="font-style: italic; font-weight: 400;">быть собой</em>
+            </div>
+            <p class="text-graphite" style="font-size: 12px; letter-spacing: -0.023em;">clamp(32px, 4vw, 45px) · line-height 1.1 · секции</p>
+
+            <div class="font-serif text-ink" style="font-size: 34px; letter-spacing: 0; line-height: 1.15;">
+              Card heading: <em style="font-style: italic; font-weight: 400;">Тревога</em>
+            </div>
+            <p class="text-graphite" style="font-size: 12px; letter-spacing: -0.023em;">34px · line-height 1.15 · карточки</p>
+
+            <div class="font-serif text-ink italic" style="font-size: 22px; letter-spacing: 0; line-height: 1.4;">
+              «Перемены возможны — не через усилие воли, а через понимание себя.»
+            </div>
+            <p class="text-graphite" style="font-size: 12px; letter-spacing: -0.023em;">22px italic · цитата-кредо</p>
+          </div>
+
+          <!-- Sans scale -->
+          <div class="flex flex-col gap-4">
+            <p class="eyebrow">Inter — текст и интерфейс</p>
+
+            <p style="font-size: 18px; font-weight: 300; line-height: 1.5; letter-spacing: -0.023em; color: #333333;">
+              Body large 300: Я помогаю взрослым разобраться с тревогой, выгоранием и сложностями в отношениях.
+            </p>
+            <p style="font-size: 16px; font-weight: 400; line-height: 1.6; letter-spacing: -0.023em; color: #333333;">
+              Body 400: В работе я опираюсь на когнитивно-поведенческую терапию и гештальт-подход.
+            </p>
+            <p style="font-size: 14px; font-weight: 400; line-height: 1.5; letter-spacing: -0.023em; color: #515151;">
+              Body SM / caption: Отмена бесплатно не позднее чем за 24 часа.
+            </p>
+            <p style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #b05a36;">
+              Eyebrow: С чем я работаю
+            </p>
+          </div>
+        </div>
+
+        <!-- ===================== BUTTONS ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-6" style="font-size: 28px; letter-spacing: 0;">Кнопки</h2>
+          <div class="flex flex-wrap gap-4 items-center">
+            <button class="btn-primary">Записаться на консультацию</button>
+            <button class="btn-outline">Узнать больше</button>
+            <button class="btn-ghost">Войти</button>
+          </div>
+        </div>
+
+        <!-- ===================== CARDS ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-6" style="font-size: 28px; letter-spacing: 0;">Карточки</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Service card -->
+            <article class="card flex flex-col gap-4">
+              <div class="text-accent">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-serif font-medium text-ink" style="font-size: 22px; letter-spacing: 0; line-height: 1.2;">Тревога и стресс</h3>
+                <p class="text-charcoal mt-2" style="font-size: 15px; line-height: 1.55; letter-spacing: -0.023em;">Когда тревога мешает жить, а стресс стал привычным фоном.</p>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-parchment text-graphite rounded-pill px-3 py-1" style="font-size: 12px; letter-spacing: -0.023em;">паника</span>
+                <span class="bg-parchment text-graphite rounded-pill px-3 py-1" style="font-size: 12px; letter-spacing: -0.023em;">ОКР</span>
+              </div>
+            </article>
+
+            <!-- Pricing card (regular) -->
+            <article class="flex flex-col gap-4 rounded-card p-8 bg-parchment border border-warm-taupe">
+              <div>
+                <p class="eyebrow mb-1">сессия</p>
+                <h3 class="font-serif font-medium text-ink" style="font-size: 26px; letter-spacing: 0; line-height: 1.2;">Индивидуальная</h3>
+              </div>
+              <p class="text-graphite" style="font-size: 13px; letter-spacing: -0.023em;">60 минут</p>
+              <div class="flex items-baseline gap-1">
+                <span class="font-serif font-medium text-ink" style="font-size: 40px; letter-spacing: 0; line-height: 1;">5 000</span>
+                <span class="text-graphite" style="font-size: 18px;">₽</span>
+              </div>
+              <p class="text-charcoal" style="font-size: 14px; line-height: 1.55; letter-spacing: -0.023em;">Онлайн или очно в Москве.</p>
+              <button class="btn-outline text-center">Записаться</button>
+            </article>
+
+            <!-- Pricing card (featured) -->
+            <article class="flex flex-col gap-4 rounded-card p-8 bg-parchment border-2 border-accent relative">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+                <span class="eyebrow bg-accent text-parchment rounded-pill px-4 py-1.5 whitespace-nowrap" style="font-size: 11px;">Чаще всего выбирают</span>
+              </div>
+              <div class="mt-2">
+                <p class="eyebrow mb-1">знакомство</p>
+                <h3 class="font-serif font-medium text-ink" style="font-size: 26px; letter-spacing: 0; line-height: 1.2;">Первая встреча</h3>
+              </div>
+              <p class="text-graphite" style="font-size: 13px; letter-spacing: -0.023em;">50 минут</p>
+              <div class="flex items-baseline gap-1">
+                <span class="font-serif font-medium text-ink" style="font-size: 40px; letter-spacing: 0; line-height: 1;">5 000</span>
+                <span class="text-graphite" style="font-size: 18px;">₽</span>
+              </div>
+              <p class="text-charcoal" style="font-size: 14px; line-height: 1.55; letter-spacing: -0.023em;">Разбираем запрос и решаем, подходим ли друг другу.</p>
+              <button class="btn-primary text-center">Записаться</button>
+            </article>
+          </div>
+        </div>
+
+        <!-- ===================== FORMS ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-6" style="font-size: 28px; letter-spacing: 0;">Форма</h2>
+          <div class="card max-w-md flex flex-col gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label class="text-ink font-medium" style="font-size: 14px; letter-spacing: -0.023em;">Имя</label>
+              <input type="text" placeholder="Ваше имя" class="input-field" />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-ink font-medium" style="font-size: 14px; letter-spacing: -0.023em;">Формат</label>
+              <select class="input-field" style="appearance: none;">
+                <option>Выберите...</option>
+                <option>Индивидуальная сессия</option>
+                <option>Парная консультация</option>
+              </select>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label class="text-ink font-medium" style="font-size: 14px; letter-spacing: -0.023em;">Комментарий</label>
+              <textarea placeholder="Ваш вопрос или ситуация" rows="3" class="input-field resize-none" style="border-radius: 16px;"></textarea>
+            </div>
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="sg-privacy" class="mt-0.5 rounded accent-accent" style="width: 16px; height: 16px;" />
+              <label for="sg-privacy" class="text-graphite" style="font-size: 13px; letter-spacing: -0.023em; line-height: 1.5;">
+                Согласен(на) с политикой конфиденциальности
+              </label>
+            </div>
+            <button class="btn-primary">Отправить</button>
+          </div>
+        </div>
+
+        <!-- ===================== FAQ Accordion ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-6" style="font-size: 28px; letter-spacing: 0;">Аккордеон FAQ</h2>
+          <div class="max-w-xl flex flex-col gap-0">
+            {[
+              { q: 'Конфиденциально ли всё, что я рассказываю?', a: 'Да. Всё, что происходит на сессии, остаётся строго между нами.' },
+              { q: 'Сколько встреч нужно?', a: 'Это зависит от запроса и ваших целей. Некоторые темы прорабатываются за 5–8 сессий.' },
+              { q: 'Как проходит онлайн-сессия?', a: 'По видеосвязи в Zoom или любом удобном для вас приложении.' },
+            ].map(item => (
+              <details class="group border-t border-warm-taupe last:border-b">
+                <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none">
+                  <span class="font-medium text-ink" style="font-size: 16px; letter-spacing: -0.023em;">{item.q}</span>
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full border border-warm-taupe flex items-center justify-center text-graphite transition-transform duration-200 group-open:rotate-45">
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                      <path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="pb-5">
+                  <p class="text-charcoal" style="font-size: 15px; line-height: 1.65; letter-spacing: -0.023em;">{item.a}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <!-- ===================== ACCENT THEME ===================== -->
+        <div class="mb-16">
+          <h2 class="font-serif font-medium text-ink mb-4" style="font-size: 28px; letter-spacing: 0;">Смена акцента</h2>
+          <p class="text-charcoal mb-6" style="font-size: 15px; letter-spacing: -0.023em; line-height: 1.6;">
+            Альтернативная тема «Ease Health» с зелёным акцентом (#0f3e17) включается атрибутом
+            <code class="bg-aged-paper px-1.5 py-0.5 rounded text-ink" style="font-size: 13px;">data-accent="green"</code> на теге <code class="bg-aged-paper px-1.5 py-0.5 rounded text-ink" style="font-size: 13px;">&lt;html&gt;</code>.
+          </p>
+          <button
+            id="toggle-accent"
+            class="btn-outline"
+            onclick="document.documentElement.dataset.accent = document.documentElement.dataset.accent === 'green' ? '' : 'green'"
+          >
+            Переключить акцент
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

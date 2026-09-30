@@ -1,0 +1,96 @@
+---
+import { siteConfig } from '../content/site';
+---
+
+<section class="section-gap bg-parchment" id="hero">
+  <div class="container">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+
+      <!-- Text -->
+      <div class="flex flex-col gap-8">
+        <!-- Eyebrow -->
+        <p class="eyebrow">{siteConfig.profession} · {siteConfig.location}</p>
+
+        <!-- Headline: roman + italic mix -->
+        <h1
+          class="font-serif font-medium text-ink leading-none"
+          style="font-size: clamp(44px, 7vw, 80px); letter-spacing: 0; line-height: 0.95;"
+        >
+          Место, где можно<br>
+          <em class="italic font-normal not-italic" style="font-style: italic;">быть собой</em>
+        </h1>
+
+        <!-- Subheading -->
+        <p
+          class="text-charcoal max-w-md"
+          style="font-size: 18px; font-weight: 300; line-height: 1.5; letter-spacing: -0.023em;"
+        >
+          Я помогаю взрослым разобраться с тревогой, выгоранием и сложностями в отношениях.
+          Онлайн и очно в Москве — без спешки, без осуждения.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap gap-3">
+          <a href="#contact" class="btn-primary">Записаться на консультацию</a>
+          <a href="#about" class="btn-outline">Узнать больше</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex items-center gap-0 pt-2">
+          {siteConfig.heroStats.map((stat, index) => (
+            <>
+              <div class="flex flex-col gap-0.5 px-5 first:pl-0">
+                <span
+                  class="font-serif font-medium text-ink"
+                  style="font-size: 28px; letter-spacing: 0; line-height: 1.1;"
+                >
+                  {stat.value}
+                </span>
+                <span
+                  class="text-graphite"
+                  style="font-size: 13px; letter-spacing: -0.023em; line-height: 1.4;"
+                >
+                  {stat.label}
+                </span>
+              </div>
+              {index < siteConfig.heroStats.length - 1 && (
+                <div class="w-px h-10 bg-warm-taupe flex-shrink-0" aria-hidden="true"></div>
+              )}
+            </>
+          ))}
+        </div>
+      </div>
+
+      <!-- Photo placeholder -->
+      <div class="relative">
+        <div
+          class="rounded-card overflow-hidden bg-aged-paper aspect-[4/5] w-full max-w-sm mx-auto md:max-w-none"
+          style="min-height: 400px;"
+          role="img"
+          aria-label="Портрет Светланы Алексеевой"
+        >
+          <!-- Placeholder gradient simulating warm portrait photo -->
+          <div
+            class="w-full h-full"
+            style="background: linear-gradient(160deg, #e8ddd0 0%, #d4c5b5 40%, #c4b09a 100%);"
+          >
+            <div class="w-full h-full flex items-end p-6 md:p-8">
+              <p
+                class="text-charcoal opacity-50 text-sm"
+                style="letter-spacing: -0.023em;"
+              >
+                portrait-hero.jpg
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- Decorative accent element -->
+        <div
+          class="absolute -bottom-4 -left-4 w-24 h-24 rounded-card bg-aged-paper -z-10"
+          aria-hidden="true"
+        ></div>
+      </div>
+
+    </div>
+  </div>
+</section>

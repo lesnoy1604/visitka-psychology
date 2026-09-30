@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #fef9ef;
+    color: #2a2b2f;
+    font-family: 'Inter', system-ui, sans-serif;
+    letter-spacing: -0.023em;
+  }
+
+  html[data-accent="green"] {
+    --color-accent: #0f3e17;
+  }
+
+  * {
+    --color-accent: #b05a36;
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(176, 90, 54, 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* Font families */
+  .font-serif {
+    letter-spacing: 0; /* Cormorant does not use tight tracking */
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-accent text-parchment font-semibold text-base px-6 py-3 rounded-btn hover:opacity-90 transition-opacity;
+    letter-spacing: -0.023em;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-accent text-accent font-semibold text-base px-6 py-3 rounded-btn hover:bg-accent hover:text-parchment transition-all;
+    letter-spacing: -0.023em;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center text-ink font-normal text-base px-3 py-2 rounded-nav hover:bg-aged-paper transition-all;
+    letter-spacing: -0.023em;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase text-accent;
+    letter-spacing: 0.05em;
+  }
+
+  .card {
+    @apply bg-aged-paper rounded-card p-6 md:p-8;
+  }
+
+  .section-gap {
+    @apply py-16 md:py-24;
+  }
+
+  .container {
+    @apply max-w-page mx-auto px-6 md:px-10;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Pill form inputs */
+  .input-field {
+    @apply bg-parchment border border-ash rounded-pill px-5 py-3 text-base text-ink placeholder:text-graphite w-full;
+    letter-spacing: -0.023em;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .input-field:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(176, 90, 54, 0.2);
+  }
+
+  /* Heading with italic accent */
+  .heading-serif {
+    @apply font-serif font-medium text-ink;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+}

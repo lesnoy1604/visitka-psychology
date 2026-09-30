@@ -1,0 +1,136 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+}
+
+const { title, description, ogImage = '/og-image.jpg' } = Astro.props;
+const canonicalURL = Astro.url;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "name": "Светлана Алексеева",
+      "jobTitle": "Психолог-консультант",
+      "url": canonicalURL.origin,
+      "sameAs": [],
+      "knowsAbout": ["когнитивно-поведенческая терапия", "гештальт-терапия", "тревога", "выгорание", "отношения"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "name": "Светлана Алексеева — психолог",
+      "description": "Психолог-консультант в Москве. Работаю со взрослыми и парами: тревога, выгорание, отношения, самооценка.",
+      "url": canonicalURL.origin,
+      "telephone": "+79000000000",
+      "email": "svetlana@example.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "priceRange": "5000–8000 ₽",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Форматы работы",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Первая встреча",
+            "price": "5000",
+            "priceCurrency": "RUB",
+            "description": "50 минут. Разбираем запрос и решаем, подходим ли друг другу."
+          },
+          {
+            "@type": "Offer",
+            "name": "Индивидуальная сессия",
+            "price": "5000",
+            "priceCurrency": "RUB",
+            "description": "60 минут. Онлайн или очно в Москве."
+          },
+          {
+            "@type": "Offer",
+            "name": "Пакет 5 сессий",
+            "price": "22500",
+            "priceCurrency": "RUB",
+            "description": "5 × 60 минут. Действует 2 месяца."
+          },
+          {
+            "@type": "Offer",
+            "name": "Парная консультация",
+            "price": "8000",
+            "priceCurrency": "RUB",
+            "description": "90 минут. Для пар."
+          }
+        ]
+      }
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts: Cormorant Garamond + Inter with cyrillic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;600&display=swap&subset=cyrillic,latin"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org -->
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll reveal -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>

@@ -1,10 +1,14 @@
 {
   "name": "visitka-psychology",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
-  "private": true
+  "dependencies": {
+    "astro": "^4.16.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "tailwindcss": "^3.4.0"
+  }
 }

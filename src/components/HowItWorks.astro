@@ -1,0 +1,56 @@
+---
+import { siteConfig } from '../content/site';
+---
+
+<section class="section-gap bg-parchment" id="how-it-works">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="flex flex-col gap-4 mb-12 md:mb-16 max-w-xl">
+      <p class="eyebrow reveal">Как проходит работа</p>
+      <h2
+        class="font-serif font-medium text-ink reveal"
+        style="font-size: clamp(32px, 4vw, 45px); letter-spacing: 0; line-height: 1.1;"
+      >
+        Просто и без <em style="font-style: italic; font-weight: 400;">лишнего</em>
+      </h2>
+    </div>
+
+    <!-- Steps grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+      {siteConfig.howItWorks.map((step, index) => (
+        <article
+          class="card flex flex-col gap-5 reveal"
+          style={`transition-delay: ${index * 80}ms;`}
+        >
+          <!-- Step number as eyebrow -->
+          <p class="eyebrow">{step.step}</p>
+
+          <!-- Title -->
+          <h3
+            class="font-serif font-medium text-ink"
+            style="font-size: 28px; letter-spacing: 0; line-height: 1.15;"
+          >
+            {step.title}
+          </h3>
+
+          <!-- Description -->
+          <p
+            class="text-charcoal flex-grow"
+            style="font-size: 15px; line-height: 1.6; letter-spacing: -0.023em;"
+          >
+            {step.description}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA after steps -->
+    <div class="mt-10 md:mt-12 text-center reveal">
+      <a href="#contact" class="btn-primary">
+        Начать с первой встречи
+      </a>
+    </div>
+
+  </div>
+</section>

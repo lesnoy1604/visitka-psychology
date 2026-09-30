@@ -1,0 +1,61 @@
+---
+import { siteConfig } from '../content/site';
+---
+
+<section class="section-gap bg-aged-paper" id="faq">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="flex flex-col gap-4 mb-12 max-w-xl">
+      <p class="eyebrow reveal">Часто спрашивают</p>
+      <h2
+        class="font-serif font-medium text-ink reveal"
+        style="font-size: clamp(32px, 4vw, 45px); letter-spacing: 0; line-height: 1.1;"
+      >
+        Вопросы и <em style="font-style: italic; font-weight: 400;">ответы</em>
+      </h2>
+    </div>
+
+    <!-- FAQ accordion -->
+    <div class="max-w-2xl flex flex-col gap-0">
+      {siteConfig.faq.map((item, index) => (
+        <details
+          class="group border-t border-warm-taupe last:border-b reveal"
+          style={`transition-delay: ${index * 50}ms;`}
+        >
+          <summary
+            class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none select-none"
+            style="letter-spacing: -0.023em;"
+          >
+            <span
+              class="font-medium text-ink"
+              style="font-size: 16px; letter-spacing: -0.023em; line-height: 1.4;"
+            >
+              {item.question}
+            </span>
+
+            <!-- Plus/minus icon -->
+            <span
+              class="flex-shrink-0 w-5 h-5 rounded-full border border-warm-taupe flex items-center justify-center text-graphite transition-transform duration-200 group-open:rotate-45"
+              aria-hidden="true"
+            >
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                <path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </summary>
+
+          <div class="pb-5">
+            <p
+              class="text-charcoal"
+              style="font-size: 15px; line-height: 1.65; letter-spacing: -0.023em;"
+            >
+              {item.answer}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

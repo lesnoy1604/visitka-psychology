@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../content/site';
+
+const title = 'Политика конфиденциальности — ' + siteConfig.name;
+const description = 'Политика в отношении обработки персональных данных.';
+const year = new Date().getFullYear();
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <main>
+    <section class="section-gap bg-parchment">
+      <div class="container max-w-3xl">
+
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Хлебные крошки">
+          <a
+            href="/"
+            class="text-graphite hover:text-accent transition-colors"
+            style="font-size: 14px; letter-spacing: -0.023em;"
+          >
+            Главная
+          </a>
+          <span class="text-warm-taupe mx-2" aria-hidden="true">/</span>
+          <span
+            class="text-ink"
+            style="font-size: 14px; letter-spacing: -0.023em;"
+          >
+            Политика конфиденциальности
+          </span>
+        </nav>
+
+        <!-- TODO: Требует юридической проверки перед публикацией. Это шаблон. -->
+        <div
+          class="bg-aged-paper border border-warm-taupe rounded-card px-5 py-4 mb-10"
+        >
+          <p
+            class="text-graphite"
+            style="font-size: 13px; letter-spacing: -0.023em; line-height: 1.6;"
+          >
+            <strong class="text-accent">TODO:</strong> Этот документ является шаблоном и требует проверки
+            юридическим специалистом перед публикацией на сайте. Убедитесь, что он соответствует
+            актуальной редакции 152-ФЗ и вашей фактической деятельности.
+          </p>
+        </div>
+
+        <h1
+          class="font-serif font-medium text-ink mb-10"
+          style="font-size: clamp(28px, 4vw, 40px); letter-spacing: 0; line-height: 1.1;"
+        >
+          Политика в отношении обработки персональных данных
+        </h1>
+
+        <div
+          class="flex flex-col gap-8"
+          style="font-size: 15px; line-height: 1.7; letter-spacing: -0.023em; color: #333333;"
+        >
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">1. Общие положения</h2>
+            <p class="mb-3">
+              Настоящая политика обработки персональных данных составлена в соответствии с требованиями
+              Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных» и определяет порядок
+              обработки персональных данных и меры по обеспечению безопасности персональных данных,
+              предпринимаемые {siteConfig.name} (далее — Оператор).
+            </p>
+            <p class="mb-3">
+              Оператор ставит своей важнейшей целью и условием осуществления своей деятельности
+              соблюдение прав и свобод человека и гражданина при обработке его персональных данных,
+              в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну.
+            </p>
+            <p>
+              Актуальная версия политики свободно опубликована на сайте: {/* TODO: вставить URL сайта */}
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">2. Основные понятия</h2>
+            <ul class="list-disc pl-5 flex flex-col gap-2">
+              <li>
+                <strong>Персональные данные</strong> — любая информация, относящаяся прямо или косвенно
+                к определённому физическому лицу (субъекту персональных данных).
+              </li>
+              <li>
+                <strong>Оператор</strong> — государственный орган, муниципальный орган, юридическое или физическое лицо,
+                самостоятельно или совместно с другими лицами организующее и осуществляющее обработку персональных данных.
+              </li>
+              <li>
+                <strong>Обработка персональных данных</strong> — любое действие (операция) или совокупность действий,
+                совершаемых с персональными данными.
+              </li>
+              <li>
+                <strong>Конфиденциальность персональных данных</strong> — обязательное соблюдение Оператором
+                требования не допускать распространения персональных данных без согласия субъекта.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">3. Основания и цели обработки</h2>
+            <p class="mb-3">
+              Оператор обрабатывает персональные данные исключительно в следующих целях:
+            </p>
+            <ul class="list-disc pl-5 flex flex-col gap-2">
+              <li>Обработка обращений и записи на консультации.</li>
+              <li>Исполнение договорных обязательств по оказанию психологических консультаций.</li>
+              <li>Ответ на запросы и вопросы через форму на сайте.</li>
+            </ul>
+            <p class="mt-3">
+              Правовым основанием обработки является согласие субъекта персональных данных (ст. 6 и 9 152-ФЗ).
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">4. Категории обрабатываемых данных</h2>
+            <p class="mb-3">Оператор обрабатывает следующие категории персональных данных:</p>
+            <ul class="list-disc pl-5 flex flex-col gap-2">
+              <li>Имя и контактные данные (телефон, e-mail, мессенджер).</li>
+              <li>Данные, добровольно предоставленные в форме записи или переписке.</li>
+            </ul>
+            <p class="mt-3">
+              Оператор не собирает специальные категории персональных данных (сведения о состоянии здоровья
+              в рамках медицинской деятельности не обрабатываются — Оператор осуществляет психологическое
+              консультирование, не являющееся медицинской помощью).
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">5. Передача данных третьим лицам</h2>
+            <p class="mb-3">
+              Оператор не передаёт персональные данные третьим лицам без согласия субъекта, за исключением
+              случаев, предусмотренных законодательством Российской Федерации.
+            </p>
+            <p>
+              Для обработки формы на сайте может использоваться сервис Formspree (США). При его использовании
+              данные передаются в соответствии с политикой конфиденциальности Formspree.
+              <!-- TODO: уточнить при подключении Formspree -->
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">6. Права субъекта персональных данных</h2>
+            <p class="mb-3">Субъект персональных данных вправе:</p>
+            <ul class="list-disc pl-5 flex flex-col gap-2">
+              <li>Получить сведения об обработке своих персональных данных.</li>
+              <li>Потребовать уточнения, блокирования или уничтожения персональных данных.</li>
+              <li>Отозвать согласие на обработку персональных данных.</li>
+              <li>Обжаловать действия Оператора в Роскомнадзор.</li>
+            </ul>
+            <p class="mt-3">
+              Для реализации своих прав субъект персональных данных может обратиться к Оператору
+              по адресу электронной почты: <a href={`mailto:${siteConfig.contacts.email}`} class="text-accent hover:underline">{siteConfig.contacts.email}</a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">7. Хранение и защита данных</h2>
+            <p>
+              Персональные данные хранятся в течение срока, необходимого для достижения целей обработки,
+              или до отзыва согласия субъекта. Оператор принимает необходимые организационные и технические
+              меры для защиты персональных данных от несанкционированного доступа, уничтожения, изменения
+              или иных неправомерных действий.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="font-serif font-medium text-ink mb-3" style="font-size: 22px; letter-spacing: 0;">8. Контакты Оператора</h2>
+            <p>
+              {siteConfig.name}<br />
+              E-mail: <a href={`mailto:${siteConfig.contacts.email}`} class="text-accent hover:underline">{siteConfig.contacts.email}</a><br />
+              Телефон: <a href={`tel:${siteConfig.contacts.phoneRaw}`} class="text-accent hover:underline">{siteConfig.contacts.phone}</a>
+            </p>
+          </section>
+
+          <p
+            class="text-graphite"
+            style="font-size: 13px; letter-spacing: -0.023em;"
+          >
+            Последнее обновление: {year} год.
+            <!-- TODO: обновить дату при публикации -->
+          </p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

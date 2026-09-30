@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Approach from '../components/Approach.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../content/site';
+---
+
+<Layout title={siteConfig.title} description={siteConfig.description}>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Services />
+    <Approach />
+    <HowItWorks />
+    <Pricing />
+    {siteConfig.showTestimonials && <Testimonials />}
+    <FAQ />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

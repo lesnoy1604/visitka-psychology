@@ -1,0 +1,113 @@
+---
+import { siteConfig } from '../content/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-aged-paper border-t border-warm-taupe">
+  <div class="container py-10 md:py-14">
+    <div class="flex flex-col gap-8">
+
+      <!-- Top row -->
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+
+        <!-- Name + tagline -->
+        <div class="flex flex-col gap-2">
+          <p
+            class="font-serif font-medium text-ink"
+            style="font-size: 22px; letter-spacing: 0; line-height: 1.2;"
+          >
+            {siteConfig.name}
+          </p>
+          <p
+            class="text-graphite"
+            style="font-size: 14px; letter-spacing: -0.023em; line-height: 1.4;"
+          >
+            {siteConfig.profession} · {siteConfig.location}
+          </p>
+        </div>
+
+        <!-- Contacts -->
+        <div class="flex flex-col gap-2">
+          <p
+            class="eyebrow mb-1"
+          >
+            Контакты
+          </p>
+          <a
+            href={`tel:${siteConfig.contacts.phoneRaw}`}
+            class="text-charcoal hover:text-accent transition-colors"
+            style="font-size: 14px; letter-spacing: -0.023em;"
+          >
+            {siteConfig.contacts.phone}
+          </a>
+          <a
+            href={`https://t.me/${siteConfig.contacts.telegram}`}
+            class="text-charcoal hover:text-accent transition-colors"
+            style="font-size: 14px; letter-spacing: -0.023em;"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @{siteConfig.contacts.telegram}
+          </a>
+          <a
+            href={`mailto:${siteConfig.contacts.email}`}
+            class="text-charcoal hover:text-accent transition-colors"
+            style="font-size: 14px; letter-spacing: -0.023em;"
+          >
+            {siteConfig.contacts.email}
+          </a>
+        </div>
+
+        <!-- Nav -->
+        <nav
+          class="flex flex-col gap-2"
+          aria-label="Навигация в подвале"
+        >
+          <p class="eyebrow mb-1">Навигация</p>
+          <a href="#about" class="text-charcoal hover:text-accent transition-colors" style="font-size: 14px; letter-spacing: -0.023em;">Обо мне</a>
+          <a href="#services" class="text-charcoal hover:text-accent transition-colors" style="font-size: 14px; letter-spacing: -0.023em;">С чем работаю</a>
+          <a href="#pricing" class="text-charcoal hover:text-accent transition-colors" style="font-size: 14px; letter-spacing: -0.023em;">Форматы и стоимость</a>
+          <a href="#contact" class="text-charcoal hover:text-accent transition-colors" style="font-size: 14px; letter-spacing: -0.023em;">Записаться</a>
+          <a href="/privacy" class="text-charcoal hover:text-accent transition-colors" style="font-size: 14px; letter-spacing: -0.023em;">Политика конфиденциальности</a>
+        </nav>
+
+      </div>
+
+      <!-- Emergency disclaimer -->
+      <div class="border border-warm-taupe rounded-card p-4 md:p-5">
+        <p
+          class="text-graphite"
+          style="font-size: 13px; letter-spacing: -0.023em; line-height: 1.6;"
+        >
+          Я не оказываю экстренную психологическую помощь. Если вам нужна срочная поддержка,
+          обратитесь на телефон доверия&nbsp;
+          <a
+            href={`tel:${siteConfig.emergencyPhone.replace(/-/g, '')}`}
+            class="text-accent font-semibold hover:underline"
+          >
+            {siteConfig.emergencyPhone}
+          </a>
+          (бесплатно по России, круглосуточно).
+        </p>
+      </div>
+
+      <!-- Copyright -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 pt-4 border-t border-warm-taupe">
+        <p
+          class="text-graphite"
+          style="font-size: 12px; letter-spacing: -0.023em;"
+        >
+          &copy; {year} {siteConfig.name}. Все права защищены.
+        </p>
+        <p
+          class="text-graphite"
+          style="font-size: 12px; letter-spacing: -0.023em;"
+        >
+          Сайт создан в ознакомительных целях. Данные — заглушки.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>

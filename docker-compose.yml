@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-http://localhost}
+        PUBLIC_FORMSPREE_ENDPOINT: ${PUBLIC_FORMSPREE_ENDPOINT:-}
+    ports:
+      - "${PORT:-80}:80"
+    restart: unless-stopped

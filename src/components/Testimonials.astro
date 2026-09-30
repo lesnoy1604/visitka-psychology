@@ -1,0 +1,62 @@
+---
+import { siteConfig } from '../content/site';
+---
+
+{siteConfig.showTestimonials && (
+  <section class="section-gap bg-parchment" id="testimonials">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-4 mb-12 md:mb-16 max-w-xl">
+        <p class="eyebrow reveal">Отзывы</p>
+        <h2
+          class="font-serif font-medium text-ink reveal"
+          style="font-size: clamp(32px, 4vw, 45px); letter-spacing: 0; line-height: 1.1;"
+        >
+          Что говорят <em style="font-style: italic; font-weight: 400;">клиенты</em>
+        </h2>
+      </div>
+
+      <!-- Testimonials list -->
+      <div class="flex flex-col gap-12 md:gap-16 max-w-2xl">
+        {siteConfig.testimonials.map((testimonial, index) => (
+          <figure
+            class="flex flex-col gap-5 reveal"
+            style={`transition-delay: ${index * 100}ms;`}
+          >
+            <!-- Quote -->
+            <blockquote>
+              <p
+                class="font-serif text-ink"
+                style="font-size: clamp(18px, 2.5vw, 22px); font-style: italic; font-weight: 400; letter-spacing: 0; line-height: 1.5;"
+              >
+                &ldquo;{testimonial.quote}&rdquo;
+              </p>
+            </blockquote>
+
+            <!-- Attribution -->
+            <figcaption class="flex items-center gap-3">
+              <div
+                class="w-px h-5 bg-warm-taupe flex-shrink-0"
+                aria-hidden="true"
+              ></div>
+              <span
+                class="text-ink font-semibold"
+                style="font-size: 14px; letter-spacing: -0.023em;"
+              >
+                {testimonial.name}
+              </span>
+              <span
+                class="text-graphite"
+                style="font-size: 14px; letter-spacing: -0.023em;"
+              >
+                {testimonial.age} года
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+
+    </div>
+  </section>
+)}

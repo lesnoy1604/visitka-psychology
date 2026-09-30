@@ -1,0 +1,73 @@
+---
+import { siteConfig } from '../content/site';
+---
+
+<section class="section-gap bg-aged-paper" id="about">
+  <div class="container">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+
+      <!-- Photo placeholder -->
+      <div class="reveal">
+        <div
+          class="rounded-card overflow-hidden bg-parchment aspect-[3/4] w-full max-w-sm mx-auto md:max-w-none"
+          role="img"
+          aria-label="Фото Светланы Алексеевой"
+        >
+          <div
+            class="w-full h-full"
+            style="background: linear-gradient(160deg, #ede5d8 0%, #d9cfc0 50%, #c8b8a4 100%);"
+          >
+            <div class="w-full h-full flex items-end p-6">
+              <p
+                class="text-charcoal opacity-40 text-sm"
+                style="letter-spacing: -0.023em;"
+              >
+                portrait-about.jpg
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="flex flex-col gap-8">
+        <!-- Eyebrow -->
+        <p class="eyebrow reveal">Обо мне</p>
+
+        <!-- Heading -->
+        <h2
+          class="font-serif font-medium text-ink reveal"
+          style="font-size: clamp(32px, 4vw, 45px); letter-spacing: 0; line-height: 1.1;"
+        >
+          Психолог, который <em style="font-style: italic; font-weight: 400;">слушает</em>
+        </h2>
+
+        <!-- Paragraphs -->
+        <div class="flex flex-col gap-4">
+          {siteConfig.about.paragraphs.map((paragraph) => (
+            <p
+              class="text-charcoal reveal"
+              style="font-size: 16px; line-height: 1.6; letter-spacing: -0.023em;"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <!-- Credo quote -->
+        <blockquote class="border-l-2 border-warm-taupe pl-6 reveal">
+          <p
+            class="font-serif text-ink"
+            style="font-size: 22px; font-style: italic; font-weight: 400; letter-spacing: 0; line-height: 1.4;"
+          >
+            &ldquo;{siteConfig.about.credo}&rdquo;
+          </p>
+        </blockquote>
+
+        <div class="reveal">
+          <a href="#contact" class="btn-primary">Записаться на консультацию</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

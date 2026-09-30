@@ -1,0 +1,222 @@
+---
+import { siteConfig } from '../content/site';
+---
+
+<section class="section-gap bg-parchment" id="contact">
+  <div class="container">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+
+      <!-- Left: Contact info -->
+      <div class="flex flex-col gap-6">
+        <p class="eyebrow reveal">Запись на консультацию</p>
+
+        <h2
+          class="font-serif font-medium text-ink reveal"
+          style="font-size: clamp(32px, 4vw, 45px); letter-spacing: 0; line-height: 1.1;"
+        >
+          Напишите — и мы <em style="font-style: italic; font-weight: 400;">найдём время</em>
+        </h2>
+
+        <p
+          class="text-charcoal reveal"
+          style="font-size: 16px; line-height: 1.6; letter-spacing: -0.023em;"
+        >
+          Можно просто написать, даже если вы не знаете, с чего начать.
+          Я отвечаю в течение одного рабочего дня.
+        </p>
+
+        <!-- Contact buttons -->
+        <div class="flex flex-col gap-3 reveal">
+          <a
+            href={`https://t.me/${siteConfig.contacts.telegram}`}
+            class="btn-outline flex items-center gap-3 w-full justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <!-- Telegram icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 2L11 13"/>
+              <path d="M22 2L15 22l-4-9-9-4 20-7z"/>
+            </svg>
+            Написать в Telegram
+          </a>
+
+          <a
+            href={`https://wa.me/${siteConfig.contacts.phoneRaw}`}
+            class="btn-outline flex items-center gap-3 w-full justify-start"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <!-- Phone icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/>
+            </svg>
+            WhatsApp
+          </a>
+
+          <a
+            href={`mailto:${siteConfig.contacts.email}`}
+            class="btn-ghost flex items-center gap-3"
+          >
+            <!-- Mail icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            {siteConfig.contacts.email}
+          </a>
+
+          <a
+            href={`tel:${siteConfig.contacts.phoneRaw}`}
+            class="btn-ghost flex items-center gap-3"
+          >
+            <!-- Phone call icon -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6 19.79 19.79 0 0 1 1.61 5a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.9a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            {siteConfig.contacts.phone}
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Contact form -->
+      <div class="reveal">
+        <form
+          method="POST"
+          action={siteConfig.formspreeEndpoint || '#'}
+          class="flex flex-col gap-4 card"
+          novalidate
+        >
+          <h3
+            class="font-serif font-medium text-ink"
+            style="font-size: 22px; letter-spacing: 0; line-height: 1.2;"
+          >
+            Форма записи
+          </h3>
+
+          <!-- Name -->
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="contact-name"
+              class="text-ink font-medium"
+              style="font-size: 14px; letter-spacing: -0.023em;"
+            >
+              Имя
+            </label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              placeholder="Ваше имя"
+              class="input-field"
+              autocomplete="given-name"
+            />
+          </div>
+
+          <!-- Contact method -->
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="contact-method"
+              class="text-ink font-medium"
+              style="font-size: 14px; letter-spacing: -0.023em;"
+            >
+              Способ связи
+            </label>
+            <select
+              id="contact-method"
+              name="contact_method"
+              class="input-field"
+              style="appearance: none;"
+            >
+              <option value="">Выберите...</option>
+              <option value="telegram">Telegram</option>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="email">E-mail</option>
+              <option value="phone">Телефон</option>
+            </select>
+          </div>
+
+          <!-- Format -->
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="contact-format"
+              class="text-ink font-medium"
+              style="font-size: 14px; letter-spacing: -0.023em;"
+            >
+              Формат
+            </label>
+            <select
+              id="contact-format"
+              name="format"
+              class="input-field"
+              style="appearance: none;"
+            >
+              <option value="">Не знаю ещё</option>
+              {siteConfig.pricing.map((plan) => (
+                <option value={plan.id}>{plan.title} — {plan.price.toLocaleString('ru-RU')} {plan.currency}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Comment -->
+          <div class="flex flex-col gap-1.5">
+            <label
+              for="contact-comment"
+              class="text-ink font-medium"
+              style="font-size: 14px; letter-spacing: -0.023em;"
+            >
+              Комментарий
+            </label>
+            <textarea
+              id="contact-comment"
+              name="comment"
+              placeholder="Кратко — с чем хотите разобраться или любой вопрос"
+              rows="4"
+              class="input-field resize-none"
+              style="border-radius: 16px;"
+            ></textarea>
+          </div>
+
+          <!-- Privacy consent -->
+          <div class="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="privacy-consent"
+              name="privacy"
+              required
+              class="mt-0.5 rounded accent-accent flex-shrink-0"
+              style="width: 16px; height: 16px;"
+            />
+            <label
+              for="privacy-consent"
+              class="text-graphite"
+              style="font-size: 13px; letter-spacing: -0.023em; line-height: 1.5;"
+            >
+              Я согласна(-ен) с обработкой персональных данных в соответствии с
+              <a href="/privacy" class="text-accent hover:underline" target="_blank">политикой конфиденциальности</a>
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="btn-primary w-full justify-center"
+          >
+            Отправить
+          </button>
+
+          {!siteConfig.formspreeEndpoint && (
+            <p
+              class="text-graphite text-center"
+              style="font-size: 12px; letter-spacing: -0.023em;"
+            >
+              <!-- TODO: подключить Formspree endpoint в src/content/site.ts -->
+              Форма пока не подключена. Напишите напрямую.
+            </p>
+          )}
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
